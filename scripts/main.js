@@ -1,6 +1,24 @@
-function getSong(moodID) {
+document.addEventListener("DOMContentLoaded", () => {
+    const happy_button = document.getElementById("happy");
+    const sad_button = document.getElementById("sad");
+    const studious_button = document.getElementById("studious");
 
-    if (moodID < 0 || moodID > 2) { invalidInput(); return; }
+    happy_button.onclick = () => {
+        getSong(0);
+    };
+    sad_button.onclick = () => {
+        getSong(1);
+    };
+    studious_button.onclick = () => {
+        getSong(2);
+    };
+});
+
+function getSong(moodID) {
+    if (moodID < 0 || moodID > 2) {
+        invalidInput();
+        return;
+    }
     var randomNum = randomizer(0, 2);
 
     console.log(moodID + " " + randomNum);
@@ -12,14 +30,6 @@ function getSong(moodID) {
     window.location.replace(link);
 }
 
-function randomizer(min, max) {
+const randomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function invalidInput() {
-    alert("Not a valid Input");
-}
-
-function francisFunction() {
-    console.log('Hello! This is Francis\'s function!')
-}
+};
