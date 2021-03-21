@@ -25,6 +25,7 @@ h1 {
 }
 
 body{
+    font-family: Lucida ,monospace;
     background-color: #121212;
     box-shadow: none;
 }
