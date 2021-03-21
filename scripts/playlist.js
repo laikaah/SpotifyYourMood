@@ -13,7 +13,3 @@ function playlistList(category, id) {
     return playlists[category, id];
 }
 
-function anotherFunctionFromFrancis() {
-    console.log('This is another function')
-}
-
