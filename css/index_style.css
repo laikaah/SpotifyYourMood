@@ -61,3 +61,19 @@ hr {
   background-image: linear-gradient(to right, #c6bdff, #c7ffbd);
   border: none;
 }
+
+#clock{
+  color: #66ff99;
+  font-size: 56px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#date{
+    color: #66ff99;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
