@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function getSong(moodID) {
-    if (moodID < 0 || moodID > 2) {
+    if (moodID < 0 || moodID > 7) {
         invalidInput();
         return;
     }
-    var randomNum = randomizer(0, 2);
+    var randomNum = randomizer(0, 7);
 
     console.log(moodID + " " + randomNum);
     var playlistPicked = playlistList(moodID, randomNum);
