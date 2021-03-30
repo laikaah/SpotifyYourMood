@@ -1,25 +1,31 @@
 function currentTime() {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var midday = "AM";
     var date = new Date();
-    var hour = date.getHours();
-    var min = date.getMinutes();
-    var sec = date.getSeconds();
-    var day = date.getUTCDate();
-    var month = date.getMonth()
-    var year = date.getUTCFullYear();
-    hour = updateTime(hour);
-    min = updateTime(min);
-    sec = updateTime(sec);
-    midday = (hour >= 12) ? "PM" : "AM";
-    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; 
-    document.getElementById("date").innerText = months[month+1]+ " " +day+ ", " +year; 
-    var t = setTimeout(function(){ currentTime() }, 1000);
+    
+    document.getElementById("clock").innerText = formatTime(date);
+    document.getElementById("date").innerText = formateDate(date);
 }
 
-function updateTime(x) {
-    if (x < 10) return "0" + x;
-    else return x
+setTimeout(currentTime, 1000);
+
+function humanizeTime(time) {
+    if (time < 10) return "0" + time;
+    else return time;
 }
 
-currentTime();
+function formatTime(date){
+    let hour = humanizeTime(date.getHours());
+    let minute = humanizeTime(date.getMinutes());
+    let second = humanizeTime(date.getSeconds());
+    let midday = hour >= 12 ? "PM" : "AM";
+    
+    return `${hour}:${minute}:${second} ${midday}`;
+}
+
+function formatDate(date){
+    let day = date.getUTCDate();
+    let month = date.getMonth();
+    let year = date.getUTCFullYear();   
+    
+    return `${months[month+1]} ${day}, ${year}`;
+}
